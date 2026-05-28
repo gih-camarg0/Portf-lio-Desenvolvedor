@@ -331,7 +331,7 @@ section {
     margin: 0;
 }
 
-/* Sobre & Habilidades */
+/* Habilidades */
 .about-container { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -349,19 +349,34 @@ section {
     font-weight: bold; 
 }
 
+/* Skills section — match screenshot */
+#habilidades {
+    background: var(--bg-2);
+}
+
+#habilidades .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
 .skills-container { 
     display: grid; 
-    grid-template-columns: 1fr 1fr; gap: 4rem; 
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1350px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 3rem);
 }
 .skills-type-title { 
-    font-size: 1.2rem; 
+    font-size: 1.1rem; 
+    font-weight: 700;
     margin-bottom: 1.5rem; 
     color: var(--text); 
 }
 .skills-type-title span { 
     color: var(--text-muted); 
     font-size: 0.9rem; 
-    font-weight: normal; 
+    font-weight: 400; 
 }
 .skills-grid-mini { 
     display: flex; 
@@ -369,11 +384,12 @@ section {
     gap: 10px; 
 }
 .skill-tag { 
-    background: rgba(255,255,255,0.05); 
-    border: 1px solid var(--border); 
-    padding: 8px 16px; 
+    background: rgba(255,255,255,0.04); 
+    border: 1px solid rgba(255,255,255,0.12); 
+    padding: 8px 18px; 
     border-radius: 8px; 
-    font-size: 0.85rem; 
+    font-size: 0.85rem;
+    color: var(--text);
     transition: 0.3s; 
 }
 .skill-tag:hover { 
@@ -384,6 +400,7 @@ section {
     border-color: var(--secondary); 
     background: rgba(45, 212, 191, 0.1); 
 }
+
 
 /* PROJETOS */
 .portfolio-grid { 
