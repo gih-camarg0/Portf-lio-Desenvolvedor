@@ -152,6 +152,16 @@ nav {
     color: var(--bg); 
 }
 
+/* HERO */
+#hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 0 5rem;
+    position: relative;
+    overflow: hidden;
+}
+    
 .hero-glow {
     position: absolute;
     width: 600px; height: 600px;
@@ -160,7 +170,7 @@ nav {
     top: -100px; right: -200px;
     pointer-events: none;
 }
-
+    
 .hero-glow-2 {
     position: absolute;
     width: 400px; height: 400px;
@@ -169,14 +179,14 @@ nav {
     bottom: 0; left: -150px;
     pointer-events: none;
 }
-
+    
 .hero-inner {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 4rem;
 }
-
+    
 .hero-eyebrow {
     display: flex;
     align-items: center;
@@ -185,14 +195,14 @@ nav {
     opacity: 0;
     animation: fadeUp .6s .1s forwards;
 }
-
+    
 .hero-eyebrow .line { 
     flex: 1; 
     height: 1px; 
     background: var(--border); 
     max-width: 48px; 
 }
-
+    
 .hero-name {
     font-family: var(--font-serif);
     font-size: clamp(3rem, 7vw, 5.5rem);
@@ -202,23 +212,22 @@ nav {
     opacity: 0;
     animation: fadeUp .6s .2s forwards;
 }
-
-.gradient-text { 
-    background: linear-gradient(90deg, var(--primary), var(--secondary)); 
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+    
+.hero-name em {
+    font-style: italic;
+    color: var(--accent);
 }
-
+    
 .hero-bio {
-      font-size: clamp(.95rem, 1.5vw, 1.1rem);
-      color: var(--muted);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      line-height: 1.75;
-      opacity: 0;
-      animation: fadeUp .6s .3s forwards;
-    }
-
+    font-size: clamp(.95rem, 1.5vw, 1.1rem);
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+    opacity: 0;
+    animation: fadeUp .6s .3s forwards;
+}
+    
 .hero-bio strong { 
     color: var(--text); 
     font-weight: 500; 
@@ -229,7 +238,7 @@ nav {
     opacity: 0;
     animation: fadeIn .8s .5s forwards;
 }
-
+    
 .hero-avatar {
     width: 220px; height: 260px;
     border-radius: var(--r-lg);
@@ -238,29 +247,28 @@ nav {
     overflow: hidden;
     position: relative;
 }
-
+    
 .avatar-placeholder {
     width: 100%; height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: .5rem;
-    color: var(--muted);
-    font-size: .78rem;
-    background: linear-gradient(135deg, var(--bg-3) 0%, var(--surface) 100%);
-}
-
-.avatar-icon {
-    width: 60px; height: 60px;
-    border-radius: 50%;
-    background: var(--bg-2);
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-}
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      color: var(--muted);
+      font-size: .78rem;
+      background: linear-gradient(135deg, var(--bg-3) 0%, var(--surface) 100%);
+    }
+    .avatar-icon {
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
 
 .hero-badge {
     position: absolute;
@@ -281,7 +289,17 @@ nav {
     width: 7px; 
     height: 7px; 
     border-radius: 50%; 
-    background: var(--secondary); 
+    background: #4ade80; 
+}
+
+
+@keyframes fadeUp {
+    from { opacity:0; transform:translateY(18px); }
+    to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn {
+    from { opacity:0; }
+    to   { opacity:1; }
 }
 
 section { 
@@ -386,15 +404,15 @@ section {
     border-color: var(--primary); 
 }
 .project-img {
-    overflow: hidden; /* Garante que a imagem não saia dos limites do card */
+    overflow: hidden; 
     position: relative;
 }
 
 .project-img img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
-    object-position: center; /* Centraliza a imagem no corte */
+    object-fit: cover; 
+    object-position: center; 
     display: block;
 }
 
