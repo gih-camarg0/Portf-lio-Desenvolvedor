@@ -313,6 +313,95 @@ section {
     margin: 0;
 }
 
+/* Sobre & Habilidades */
+.about-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 3rem; 
+    margin-bottom: 3rem; 
+}
+.edu-item { 
+    margin-bottom: 1.5rem; 
+    padding-left: 1rem; 
+    border-left: 2px solid var(--primary); 
+}
+.year { 
+    font-size: 0.8rem; 
+    color: var(--primary); 
+    font-weight: bold; 
+}
+
+.skills-container { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; gap: 4rem; 
+}
+.skills-type-title { 
+    font-size: 1.2rem; 
+    margin-bottom: 1.5rem; 
+    color: var(--text); 
+}
+.skills-type-title span { 
+    color: var(--text-muted); 
+    font-size: 0.9rem; 
+    font-weight: normal; 
+}
+.skills-grid-mini { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+}
+.skill-tag { 
+    background: rgba(255,255,255,0.05); 
+    border: 1px solid var(--border); 
+    padding: 8px 16px; 
+    border-radius: 8px; 
+    font-size: 0.85rem; 
+    transition: 0.3s; 
+}
+.skill-tag:hover { 
+    border-color: var(--primary); 
+    background: rgba(139, 92, 246, 0.1); 
+}
+.skill-tag.soft:hover { 
+    border-color: var(--secondary); 
+    background: rgba(45, 212, 191, 0.1); 
+}
+
+/* PROJETOS */
+/* Portfolio & Certs */
+.portfolio-grid { 
+    display: grid; grid-template-columns: 
+    repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 2rem; 
+}
+.project-card { 
+    background: var(--card-bg); 
+    border-radius: 15px; 
+    overflow: hidden; 
+    border: 1px solid var(--border); 
+    transition: 0.3s; 
+}
+.project-card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary); 
+}
+.project-img {
+    overflow: hidden; /* Garante que a imagem não saia dos limites do card */
+    position: relative;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+    object-position: center; /* Centraliza a imagem no corte */
+    display: block;
+}
+
+.project-info { 
+    padding: 1.5rem; 
+}
+
 /* CERTIFICADOS */
 #certificados { background: var(--bg-2); }
 
