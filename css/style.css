@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 *, *::before, *::after { 
     box-sizing: border-box; 
     margin: 0; 
@@ -279,4 +282,10 @@ nav {
     height: 7px; 
     border-radius: 50%; 
     background: var(--secondary); 
+}
+
+section { 
+    padding: 6rem 0; 
+    position: relative; 
+    z-index: 1; 
 }
