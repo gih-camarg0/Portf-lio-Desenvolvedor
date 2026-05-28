@@ -331,23 +331,70 @@ section {
     margin: 0;
 }
 
-/* Habilidades */
+/* Sobre & Formação */
+#sobre {
+    background: var(--bg-2);
+}
+
 .about-container { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 3rem; 
-    margin-bottom: 3rem; 
+    gap: 5rem; 
+    align-items: start;
 }
+
+.about-text .section-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+}
+
+.about-text p strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.education-box .sub-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
 .edu-item { 
     margin-bottom: 1.5rem; 
     padding-left: 1rem; 
-    border-left: 2px solid var(--primary); 
+    border-left: 2px solid var(--primary);
 }
+
+.edu-item h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0.2rem 0 0.15rem;
+}
+
+.edu-item p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+}
+
 .year { 
-    font-size: 0.8rem; 
+    font-size: 0.78rem; 
     color: var(--primary); 
-    font-weight: bold; 
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.2rem;
 }
+
 
 /* Skills section — match screenshot */
 #habilidades {
