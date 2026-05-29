@@ -4,6 +4,16 @@
       header.classList.toggle('scrolled', window.scrollY > 20);
     });
 
+// Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+    document.querySelectorAll('.mob-link').forEach(link => {
+      link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
 // Certificate filter
     const filterBtns = document.querySelectorAll('.filter-btn');
     const certCards  = document.querySelectorAll('.cert-card');
