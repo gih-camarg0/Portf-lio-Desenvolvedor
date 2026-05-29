@@ -45,3 +45,16 @@
       el.style.transition = 'opacity .5s ease, transform .5s ease, border-color .25s, box-shadow .25s';
       obs.observe(el);
     });
+
+// Scroll-in animation for project cards
+    const cards = document.querySelectorAll('.project-detail-card');
+    const cardObs = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => entry.target.classList.add('visible'), 80);
+                cardObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+ 
+    cards.forEach(card => cardObs.observe(card));
