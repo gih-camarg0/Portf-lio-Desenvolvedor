@@ -18,18 +18,19 @@ html {
     --r: 12px;
     --r-lg: 20px;
     --transition: .25s cubic-bezier(.4,0,.2,1);
+    --border:    rgba(255,255,255,.07);
+
     --bg: #0c0c0f;
     --bg-2: #111116;
     --bg-3: #17171e;
     --surface: #1d1d26;
-    --card-bg: rgba(30, 41, 59, 0.6);
     --primary: #8b5cf6;
     --secondary: #2dd4bf;
     --text: #f8fafc;
     --text-muted: #94a3b8;
     --muted:#7a7a92;
-    --border: rgba(255, 255, 255, 0.1);
-    --border:    rgba(255,255,255,.07);
+    --blue: #60a5fa;
+    --orange: #fb923c;
 }
 
 body {
@@ -64,9 +65,9 @@ body::before {
     font-weight: 500;
     letter-spacing: .12em;
     text-transform: uppercase;
-    color: var(--secondary);
-    background: rgba(126,255,212,.08);
-    border: 1px solid rgba(126,255,212,.18);
+    color: var(--primary);
+    background: rgba(193, 106, 250, 0.08);
+    border: 1px solid rgba(193, 97, 255, 0.18);
     padding: .25em .75em;
     border-radius: 99px;
 }
@@ -215,7 +216,9 @@ nav {
     
 .hero-name em {
     font-style: italic;
-    color: var(--accent);
+    background: linear-gradient(90deg, var(--primary), var(--secondary)); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
 }
     
 .hero-bio {
@@ -285,8 +288,8 @@ nav {
 .hero-badge .dot { 
     width: 7px; 
     height: 7px; 
-    border-radius: 50%; 
-    background: #4ade80; 
+    border-radius: 50%;
+    background: var(--secondary); 
 }
 
 
@@ -598,9 +601,9 @@ section {
 }
     
 .cert-card[data-category="tech"] .cert-cat      { color: var(--secondary); }
-.cert-card[data-category="agile"] .cert-cat     { color: #fb923c; }
-.cert-card[data-category="tools"] .cert-cat     { color: #60a5fa; }
-.cert-card[data-category="creative"] .cert-cat  { color: var(--secondary-2); }
+.cert-card[data-category="agile"] .cert-cat     { color: var(--orange); }
+.cert-card[data-category="tools"] .cert-cat     { color: var(--blue); }
+.cert-card[data-category="creative"] .cert-cat  { color: var(--primary); }
     
 .cert-name { 
     font-size: .92rem; 
