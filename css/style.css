@@ -134,7 +134,7 @@ nav {
     transition: right var(--transition);
 }
 
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: linear-gradient(70deg, var(--primary), var(--secondary));}
 .nav-links a:hover::after { right: 0; }
 
 .nav-cta {
