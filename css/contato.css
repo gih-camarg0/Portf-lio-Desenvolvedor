@@ -117,11 +117,9 @@
 }
 
 #content ul li a:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.4);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    color: var(--text);
+    background: rgba(45, 212, 191, 0.1);
+    border-color: rgba(45, 212, 191, 0.4);
+    box-shadow: 0 8px 24px rgba(45, 212, 191, 0.12);
 }
 
 /* First link (portfolio) — primary accent */
@@ -139,13 +137,6 @@
         rgba(45, 212, 191, 0.14) 100%);
     border-color: rgba(139, 92, 246, 0.6);
     box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
-}
-
-/* WhatsApp link — secondary accent */
-#content ul li:nth-child(2) a:hover {
-    background: rgba(45, 212, 191, 0.1);
-    border-color: rgba(45, 212, 191, 0.4);
-    box-shadow: 0 8px 24px rgba(45, 212, 191, 0.12);
 }
 
 /* ── FOOTER ──────────────────────────────────────── */
