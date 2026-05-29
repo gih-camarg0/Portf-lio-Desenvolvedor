@@ -33,7 +33,7 @@
     margin-bottom: 2.5rem;
 }
         
-.filter-btn {
+.btn-filter {
     padding: .4rem 1rem;
     border-radius: 99px;
     font-size: .82rem;
@@ -46,7 +46,7 @@
     font-family: var(--font-sans);
    }
   
-.filter-btn:hover, .filter-btn.active {
+.btn-filter:hover, .btn-filter.ativo {
     background: var(--secondary);
     border-color: var(--secondary);
     color: var(--bg);

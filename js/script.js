@@ -58,3 +58,17 @@
     }, { threshold: 0.12 });
  
     cards.forEach(card => cardObs.observe(card));
+
+// Project Design filter
+    const BtnsFilter = document.querySelectorAll('.btn-filter');
+    const designCards  = document.querySelectorAll('.design-card');
+    BtnsFilter.forEach(btn => {
+      btn.addEventListener('click', () => {
+        BtnsFilter.forEach(b => b.classList.remove('ativo'));
+        btn.classList.add('ativo');
+        const f = btn.dataset.filter;
+        designCards.forEach(card => {
+          card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
+        });
+      });
+    });
