@@ -95,7 +95,7 @@
     background: var(--bg-3);
 }
         
-.dcard-visual.portrait  { aspect-ratio: 3/4; }
+.dcard-visual.portrait  { aspect-ratio: 12/13; }
 .dcard-visual.landscape { aspect-ratio: 16/9; }
 .dcard-visual.square    { aspect-ratio: 1/1; }
 
@@ -108,6 +108,85 @@
 }
 
 .design-card:hover .dcard-visual img { transform: scale(1.04); }
+
+.compact-view {
+    height: 220px; /* Altura fixa menor para não alongar a página */
+    cursor: pointer;
+}
+
+.compact-view img {
+    object-fit: cover;
+    object-position: top; /* Foca no topo da arte onde está o desenho */
+}
+
+.dcard-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+    font-size: 0.8rem;
+    gap: 5px;
+}
+
+/* LIGHTBOX BASE */
+.lightbox {
+    display: none; position: fixed; z-index: 9999; inset: 0;
+    background: rgba(10, 10, 15, 0.98); backdrop-filter: blur(12px);
+    justify-content: center; align-items: center;
+}
+
+.lightbox-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; }
+
+.lightbox-content {
+    max-width: 90vw; max-height: 80vh; object-fit: contain;
+    border-radius: 8px; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    animation: zoomIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes zoomIn { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* NAVEGAÇÃO LIGHTBOX */
+.lb-nav {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    color: white; width: 55px; height: 55px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s; z-index: 10001;
+}
+
+.lb-nav:hover { background: var(--secondary); color: var(--bg); transform: translateY(-50%) scale(1.1); }
+.lb-nav.prev { left: 40px; }
+.lb-nav.next { right: 40px; }
+
+.lightbox-close { position: absolute; top: 30px; right: 40px; color: white; font-size: 35px; cursor: pointer; opacity: 0.6; transition: 0.3s; }
+.lightbox-close:hover { opacity: 1; color: var(--secondary); }
+
+.lightbox-counter {
+    margin-top: 20px; color: var(--muted); font-size: 0.85rem; font-family: var(--font-sans);
+    background: rgba(255,255,255,0.05); padding: 5px 15px; border-radius: 20px;
+}
+
+/* OVERLAY NO CARD */
+.compact-view { height: 260px; cursor: pointer; position: relative; }
+.compact-view img { object-fit: cover; object-position: top; }
+
+.dcard-overlay {
+    position: absolute; inset: 0; background: rgba(45, 212, 191, 0.2);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    opacity: 0; transition: 0.3s; color: white; gap: 8px;
+}
+.lightbox-trigger:hover .dcard-overlay { opacity: 1; }
+
+/* BADGE DE SLIDES */
+.dcard-slides-badge {
+    position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7);
+    padding: 4px 10px; border-radius: 6px; font-size: 10px; color: #fff;
+}
 
 /* placeholder */
 .dcard-placeholder {

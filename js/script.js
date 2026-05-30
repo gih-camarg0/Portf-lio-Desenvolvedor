@@ -59,16 +59,89 @@
  
     cards.forEach(card => cardObs.observe(card));
 
-// Project Design filter
-    const BtnsFilter = document.querySelectorAll('.btn-filter');
-    const designCards  = document.querySelectorAll('.design-card');
-    BtnsFilter.forEach(btn => {
-      btn.addEventListener('click', () => {
-        BtnsFilter.forEach(b => b.classList.remove('ativo'));
-        btn.classList.add('ativo');
-        const f = btn.dataset.filter;
-        designCards.forEach(card => {
-          card.classList.toggle('hidden', f !== 'all' && card.dataset.category !== f);
-        });
-      });
+// --- LÓGICA DO LIGHTBOX E FILTROS ---
+let currentSlides = [];
+let currentIndex = 0;
+
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lightbox-img');
+const lbCurrent = document.getElementById('lb-current');
+const lbTotal = document.getElementById('lb-total');
+const btnPrev = document.querySelector('.lb-nav.prev');
+const btnNext = document.querySelector('.lb-nav.next');
+
+document.querySelectorAll('.lightbox-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+        const type = trigger.dataset.type;
+        
+        if (type === 'image') {
+            currentSlides = [trigger.dataset.src];
+            btnPrev.style.display = 'none';
+            btnNext.style.display = 'none';
+        } else {
+            currentSlides = trigger.dataset.slides.split(',');
+            btnPrev.style.display = 'flex';
+            btnNext.style.display = 'flex';
+        }
+        
+        currentIndex = 0;
+        updateLightbox();
+        lb.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     });
+});
+
+function updateLightbox() {
+    lbImg.src = currentSlides[currentIndex];
+    lbCurrent.innerText = currentIndex + 1;
+    lbTotal.innerText = currentSlides.length;
+}
+
+// Navegação entre slides
+btnNext.onclick = (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % currentSlides.length;
+    updateLightbox();
+};
+
+btnPrev.onclick = (e) => {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + currentSlides.length) % currentSlides.length;
+    updateLightbox();
+};
+
+// Fechar Lightbox
+document.querySelector('.lightbox-close').onclick = () => {
+    lb.style.display = 'none';
+    document.body.style.overflow = 'auto';
+};
+
+lb.onclick = (e) => { if(e.target === lb) document.querySelector('.lightbox-close').onclick(); };
+
+// Atalhos do teclado
+document.addEventListener('keydown', (e) => {
+    if (lb.style.display === 'flex') {
+        if (e.key === 'ArrowRight') btnNext.click();
+        if (e.key === 'ArrowLeft') btnPrev.click();
+        if (e.key === 'Escape') document.querySelector('.lightbox-close').click();
+    }
+});
+
+// --- FILTRO DE PROJETOS ---
+document.querySelectorAll('.btn-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('ativo'));
+        btn.classList.add('ativo');
+        const filter = btn.dataset.filter;
+        
+        document.querySelectorAll('.design-card').forEach(card => {
+            if(filter === 'all' || card.dataset.category === filter) {
+                card.style.display = 'flex';
+                setTimeout(() => card.classList.add('visible'), 50);
+            } else {
+                card.style.display = 'none';
+                card.classList.remove('visible');
+            }
+        });
+    });
+});
